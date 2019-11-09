@@ -6,29 +6,38 @@ class App extends Component {
   state = {
     todos: [
       {
-        id: 1,
+        id: 0,
         title: 'cook',
         finished: false
       },
       {
-        id: 2,
+        id: 1,
         title: 'buy cloth',
         finished: false
       },
       {
-        id: 3,
+        id: 2,
         title: 'movie at 8',
         finished: false
       },
     ]
   }
 
+  //arrow function allows function to read 'this' or .bind(this)
+  markFinish = (id) => {
+    this.setState({todos: this.state.todos.map(todo => {
+      if (todo.id === id){
+        todo.finished = !todo.finished;
+        console.log(id);
+      }
+      return todo;
+    })})
+  }
+
   render(){
     return (
       <div className="App">
-        <header className="App-header">
-          <Todos todos = {this.state.todos}/>
-        </header>
+          <Todos todos = {this.state.todos} markFinish = {this.markFinish}/>
       </div>
     );
   }
