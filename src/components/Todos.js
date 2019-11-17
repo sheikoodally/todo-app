@@ -8,7 +8,12 @@ class Todos extends Component {
     render() {
         return this.props.todos.map((todo) => (
             <div key={todo.id}>
-                <Todo key={todo.id} todo={todo} markFinish = {this.props.markFinish}/>
+                <Todo 
+                    key={todo.id} 
+                    todo={todo} 
+                    markFinish = {this.props.markFinish}
+                    delTask = {this.props.delTask}
+                />
             </div>
         ))
     }
@@ -18,5 +23,5 @@ Todos.propTypes = {
     todos: PropTypes.array.isRequired
 }
 
-export default Todos
+export default Todos;
 

@@ -20,8 +20,15 @@ class Todo extends Component {
                     {
                     //binding the id
                     }
-                    <input type="checkbox" onChange={this.props.markFinish.bind(this, this.props.todo.id)} />{' '}
+                    <input 
+                        type="checkbox" 
+                        onChange={this.props.markFinish.bind(this, this.props.todo.id)} 
+                    />{' '}
                     {this.props.todo.title}
+                    <button 
+                        style={btnStyle}
+                        onClick={this.props.delTask.bind(this, this.props.todo.id)}
+                    >X</button>
                 </p>                
             </div>
         )
@@ -30,6 +37,16 @@ class Todo extends Component {
 
 Todo.propTypes = {
     todo: PropTypes.object.isRequired
+}
+
+const btnStyle = {
+    background: '#ff0000',
+    color: '#fff',
+    border: 'none',
+    float: 'right',
+    padding: '4px 7px',
+    borderRadius: '50%',
+    cursor: 'pointer'
 }
 
 

@@ -34,10 +34,18 @@ class App extends Component {
     })})
   }
 
+  delTask = (id) => {
+    this.setState ({ todos:[ ...this.state.todos.filter(todo => todo.id !== id)] });
+  }
+
   render(){
     return (
       <div className="App">
-          <Todos todos = {this.state.todos} markFinish = {this.markFinish}/>
+          <Todos 
+            todos = {this.state.todos} 
+            markFinish = {this.markFinish}
+            delTask = {this.delTask}
+          />
       </div>
     );
   }
